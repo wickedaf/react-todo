@@ -34,7 +34,7 @@ const Todo = () => {
                 id=""
               />
               <input
-                className="form-control btn btn-primary rounded-0 col-4 lead"
+                className="btn btn-primary rounded-0 col-4 lead"
                 type="submit"
                 id=""
               />

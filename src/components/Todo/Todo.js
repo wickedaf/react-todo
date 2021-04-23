@@ -17,63 +17,77 @@ const Todo = () => {
   };
   console.log(state);
   return (
-    <div className="container my-5 lead">
-      <h1 className="display-4 font-weight-bold text-monospace text-body">React Todo</h1>
+    <div className="container pt-5 lead d-flex flex-column min-vh-100">
+      <h1 className="display-4 font-weight-bold text-monospace text-body">
+        React Todo
+      </h1>
       <h1 className="display-4">Total Item in List {state.items.length}</h1>
       <form onSubmit={handleOnSubmit}>
-        <div className="form-row mx-auto w-50">
-          <input
-            className="form-control col-10 lead"
-            placeholder="Enter Item"
-            ref={itemRef}
-            type="text"
-            id=""
-          />
-          <input
-            className="form-control col-2 btn btn-primary lead"
-            type="submit"
-            id=""
-          />
+        <div style={{ width: "60%" }} className="form-row mx-auto">
+          <div className="col-12">
+            <div className="form-group d-flex">
+              <input
+                className="form-control border-right-0 rounded-0 col-8"
+                placeholder="Enter Item"
+                ref={itemRef}
+                type="text"
+                id=""
+              />
+              <input
+                className="form-control btn btn-primary rounded-0 col-4 lead"
+                type="submit"
+                id=""
+              />
+            </div>
+          </div>
         </div>
       </form>
-      {
-          state.items.length !== 0
-          ? <Table className="w-50 my-3 mx-auto" striped bordered hover size="sm">
+      {state.items.length !== 0 ? (
+        <Table className="w-50 mx-auto" striped bordered hover size="sm">
           <thead>
             <tr>
               <th>#</th>
               <th>Name</th>
-              <th style={{width: '20%'}}>Action</th>
+              <th style={{ width: "20%" }}>Action</th>
             </tr>
           </thead>
           <tbody>
-          {state.items.map((item) => (
-          <tr>
-            <td>{item.id}</td>
-            <td>{item.name}</td>
-            <td style={{width: '10%'}}>
-              <button
-                className="btn btn-outline-danger border-0 mx-3"
-                onClick={() => dispatch({ type: "REMOVE_ITEM", id: item.id })}
-              >
-                <i className="bi bi-x-circle-fill"></i>
-              </button>
-            </td>
-          </tr>
-        ))}
+            {state.items.map((item) => (
+              <tr>
+                <td>{item.id}</td>
+                <td>{item.name}</td>
+                <td style={{ width: "10%" }}>
+                  <button
+                    className="btn btn-outline-danger border-0 mx-3"
+                    onClick={() =>
+                      dispatch({ type: "REMOVE_ITEM", id: item.id })
+                    }
+                  >
+                    <i className="bi bi-x-circle-fill"></i>
+                  </button>
+                </td>
+              </tr>
+            ))}
           </tbody>
         </Table>
-        : <div></div>
-      }
-      <div className="row my-5 py-5">
-            <div className="col-lg-12 col-sm-12 text-center my-5 py-5">
-              <div className="copyright lead">
-                Copyright &copy; {new Date().getFullYear()} All rights reserved
-                | Made with ❤ by 
-                <a className="text-danger" href="http://linkedin.com/in/ishahriaremon"> Shahriar Emon</a>
-              </div>
-            </div>
+      ) : (
+        <div></div>
+      )}
+      <div className="row mt-auto pb-5">
+        <div className="col-lg-12 col-sm-12 text-center">
+          <div className="copyright lead">
+            Copyright &copy; {new Date().getFullYear()} All rights reserved |
+            Made with ❤ by
+            <a
+              className="text-danger"
+              href="http://linkedin.com/in/ishahriaremon"
+            >
+              {" "}
+              Shahriar Emon
+            </a>
           </div>
+        </div>
+      </div>
     </div>
   );
 };

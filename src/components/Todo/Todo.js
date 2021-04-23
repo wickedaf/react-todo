@@ -65,7 +65,15 @@ const Todo = () => {
         </Table>
         : <div></div>
       }
-      
+      <div className="row my-5 py-5">
+            <div className="col-lg-12 col-sm-12 text-center my-5 py-5">
+              <div className="copyright lead">
+                Copyright &copy; {new Date().getFullYear()} All rights reserved
+                | Made with ❤ by 
+                <a className="text-danger" href="http://linkedin.com/in/ishahriaremon"> Shahriar Emon</a>
+              </div>
+            </div>
+          </div>
     </div>
   );
 };
